@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Читатели</title>
 </head>
 <body>
-    <p>Читатели</p>
+    <div th:each="person : ${people}">
+<!--        <a th:text="${person.getFullName()} + ', ' + ${person.getBirthAge()}" th:href=""></a>-->
+        <p th:text="${person.getFullName()} + ', ' + ${person.getBirthAge()}">Абзац</p>
+    </div>
+<hr>
+<a href="/people/new" >Добавить читателя</a>
 </body>
 </html>
