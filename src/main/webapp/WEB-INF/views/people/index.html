@@ -6,10 +6,10 @@
 </head>
 <body>
     <div th:each="person : ${people}">
-<!--        <a th:text="${person.getFullName()} + ', ' + ${person.getBirthAge()}" th:href=""></a>-->
-        <p th:text="${person.getFullName()} + ', ' + ${person.getBirthAge()}">Абзац</p>
+        <a th:text="${person.getFullName()} + ', ' + ${person.getBirthAge()}" th:href="@{/people/{id} (id=${person.getPersonId()})}"></a>
     </div>
 <hr>
-<a href="/people/new" >Добавить читателя</a>
+<a href="/people/new" >Добавить читателя</a><br/>
+<a href="/books">Книги</a>
 </body>
 </html>

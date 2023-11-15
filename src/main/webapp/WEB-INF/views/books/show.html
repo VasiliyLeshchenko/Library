@@ -23,7 +23,12 @@
     </form>
 </div>
 <hr>
-<input type="button" value="Изменить" th:href="@{/people/{id}/edit (id=${book.getBookId()})}">
-<input type="button" value="Удалить">
+<form th:method="GET" th:action="@{/books/{id}/edit (id=${book.getBookId()})}">
+    <input type="submit" value="Редактировать">
+</form>
+<form th:method="DELETE" th:action="@{/books/{id} (id=${book.getBookId()})}">
+    <input type="submit" value="Удалить">
+</form>
+<a href="/books">Книги</a>
 </body>
 </html>

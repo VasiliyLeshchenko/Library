@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать книгу</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/books/{id} (id=${book.getBookId()})}" th:object="${book}">
+    <label th:for="title">Введите название книги: </label>
+    <input type="text" th:field="*{title}" th:value="${book.getTitle()}" id="title">
+    <br/>
+    <label th:for="author">Введите автора:</label>
+    <input type="text" th:field="*{author}" th:value="${book.getAuthor()}" id="author">
+    <br/>
+    <label th:for="year">Введите год: </label>
+    <input type="text" th:field="*{year}" th:value="${book.getYear()}" id="year">
+    <br/>
+    <input type="submit" value="Сохранить">
+</form>
+</body>
+</html>

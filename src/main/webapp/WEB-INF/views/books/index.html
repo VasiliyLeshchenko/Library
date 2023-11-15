@@ -7,9 +7,9 @@
 <body>
 <div th:each="book : ${books}">
     <a th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}" th:href="@{/books/{id} (id=${book.getBookId()})}"/>
-<!--    <p th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}"/>-->
 </div>
 <hr>
-<a href="/books/new">Добавить книгу</a>
+<a href="/books/new">Добавить книгу</a><br/>
+<a href="/people">Читатели</a>
 </body>
 </html>

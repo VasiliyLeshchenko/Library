@@ -61,9 +61,29 @@ public class BooksController {
         return "redirect:/books/" + id;
     }
 
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable("id") int id, Model model) {
+        model.addAttribute("book", bookDAO.show(id));
+        return "books/edit";
+    }
+
+
+    @PatchMapping("/{id}")
+    public String update(@PathVariable("id") int id, @ModelAttribute("book") Book book) {
+        bookDAO.update(id, book);
+        return "redirect:/books/" + id;
+    }
+
     @PatchMapping("/{id}/assign")
     public String assign(@PathVariable("id") int id, @ModelAttribute("person") Person person) {
         bookDAO.assign(id, person);
         return "redirect:/books/" + id;
     }
+
+    @DeleteMapping("/{id}")
+    public String remove(@PathVariable("id") int id) {
+        bookDAO.remove(id);
+        return "redirect:/books";
+    }
+
 }
