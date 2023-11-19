@@ -1,9 +1,17 @@
 package by.vasya.springcourse.models;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class Book {
     private int bookId;
+
+    @Size(min=2, max=100, message="Name should be between 2 and 100")
     private String title;
+    @Size(min=2, max=100, message="Your author should be between 2 and 100")
     private String author;
+    @Min(value = 0, message="Year should be greater than 0")
     private int year;
 
     public Book() {}

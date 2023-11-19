@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PersonDAO {
@@ -34,6 +35,15 @@ public class PersonDAO {
                 "SELECT * FROM person WHERE person_id=?",
                 new Object[] {id},
                 new PersonMapper()).stream().findAny().orElse(null);
+
+
+    }
+
+    public Optional<Person> show(String fullName) {
+        return jdbcTemplate.query(
+                "SELECT * FROM person WHERE full_name=?",
+                new Object[] {fullName},
+                new PersonMapper()).stream().findAny();
 
 
     }

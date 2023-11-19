@@ -1,8 +1,14 @@
 package by.vasya.springcourse.models;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class Person {
     private int person_id;
+    @Size(min = 8, max = 100)
     private String fullName;
+    @Min(value = 1900, message = "Birth of age should be bigger than 1900")
     private int birthAge;
 
     public Person() {}

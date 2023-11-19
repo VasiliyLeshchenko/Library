@@ -8,12 +8,15 @@
 <form th:method="PATCH" th:action="@{/books/{id} (id=${book.getBookId()})}" th:object="${book}">
     <label th:for="title">Введите название книги: </label>
     <input type="text" th:field="*{title}" th:value="${book.getTitle()}" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title errors</div>
     <br/>
     <label th:for="author">Введите автора:</label>
     <input type="text" th:field="*{author}" th:value="${book.getAuthor()}" id="author">
+    <div style="color: red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author errors</div>
     <br/>
     <label th:for="year">Введите год: </label>
     <input type="text" th:field="*{year}" th:value="${book.getYear()}" id="year">
+    <div style="color: red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Year errors</div>
     <br/>
     <input type="submit" value="Сохранить">
 </form>
